@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "720542394888",
+    "project_id": "weddify-ddfba",
+    "storage_bucket": "weddify-ddfba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720542394888:android:8b695dd45ce077725dbfbd",
+        "android_client_info": {
+          "package_name": "com.example.weddify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAMzp42u4Zhi2fqJYxHUdwdLjS-j6mpCk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
