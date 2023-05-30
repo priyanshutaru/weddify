@@ -8,6 +8,7 @@ import 'package:weddify/constants/constantss/constantss.dart';
 import 'package:weddify/constants/routes/routes.dart';
 import 'package:weddify/models/bestvenue/bestvenuemodel.dart';
 import 'package:weddify/provider/appprovider.dart';
+import 'package:weddify/screens/checkout_screens/checkout_screen.dart';
 
 class ProductsDeatials extends StatefulWidget {
   final ProductModel singleProduct;
@@ -155,8 +156,8 @@ class _ProductsDeatialsState extends State<ProductsDeatials> {
                       onPressed: () {
                         ProductModel productModel =
                             widget.singleProduct.copyWith(qty: qty);
-                        // Routes.instance
-                        //     .push(widget: CheckoutScreen(singleProduct: productModel,), context: context);
+                        Routes.instance
+                            .push(widget: CheckoutScreen(singleProduct: productModel,), context: context);
                       },
                       child: Text("Buy"),
                     )),

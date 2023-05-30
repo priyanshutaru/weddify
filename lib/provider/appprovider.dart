@@ -5,6 +5,8 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:weddify/constants/constantss/constantss.dart';
+import 'package:weddify/firebase_helper/firebase-storage/firebase-storage.dart';
+import 'package:weddify/firebase_helper/firebasefirestore/firebase_firestore.dart';
 import 'package:weddify/models/bestvenue/bestvenuemodel.dart';
 import 'package:weddify/models/usermodel/usermodel.dart';
 
@@ -97,91 +99,91 @@ class AppProvider with ChangeNotifier {
 //   //   notifyListeners();
 //   // }
 
-//   void getUserInfoFirebase() async {
-//     _userModel = await FirebaseFirestoreHelper.instance.getUserInformation();
-//     notifyListeners();
-//   }
+  void getUserInfoFirebase() async {
+    _userModel = await FirebaseFirestoreHelper.instance.getUserInformation();
+    notifyListeners();
+  }
 
-//   void updateUserInfoFirebase(
-//       BuildContext context, UserModel userModel, File? file) async {
-//     if (file == null) {
-//       showLoaderDialog(context);
+  void updateUserInfoFirebase(
+      BuildContext context, UserModel userModel, File? file) async {
+    if (file == null) {
+      showLoaderDialog(context);
 
-//       _userModel = userModel;
-//       await FirebaseFirestore.instance
-//           .collection("users")
-//           .doc(_userModel!.id)
-//           .set(_userModel!.toJson());
-//       Navigator.of(context, rootNavigator: true).pop();
-//       Navigator.of(context).pop();
-//     } else {
-//       showLoaderDialog(context);
+      _userModel = userModel;
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(_userModel!.id)
+          .set(_userModel!.toJson());
+      Navigator.of(context, rootNavigator: true).pop();
+      Navigator.of(context).pop();
+    } else {
+      showLoaderDialog(context);
 
-//       String imageUrl =
-//           await FirebaseStorageHelper.instance.uploadUserImage(file);
-//       _userModel = userModel.copyWith(image: imageUrl);
-//       await FirebaseFirestore.instance
-//           .collection("users")
-//           .doc(_userModel!.id)
-//           .set(_userModel!.toJson());
-//       Navigator.of(context, rootNavigator: true).pop();
-//       Navigator.of(context).pop();
-//     }
-//     toastMessage("Successfully updated profile");
+      String imageUrl =
+          await FirebaseStorageHelper.instance.uploadUserImage(file);
+      _userModel = userModel.copyWith(image: imageUrl);
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(_userModel!.id)
+          .set(_userModel!.toJson());
+      Navigator.of(context, rootNavigator: true).pop();
+      Navigator.of(context).pop();
+    }
+    toastMessage("Successfully updated profile");
 
-//     notifyListeners();
-//   }
+    notifyListeners();
+  }
 
 
 //   //********************------------- this state is bascially work on to add total price of the productes in cart and also at payment screen  -------------********************//
 //   // //////// TOTAL PRICE / // / // / / // / / / // /
 
-//   double totalPrice() {
-//     double totalPrice = 0.0;
-//     for (var element in _cartProductList) {
-//       totalPrice += element.price * element.qty!;
-//     }
-//     return totalPrice;
-//   }
+  double totalPrice() {
+    double totalPrice = 0.0;
+    for (var element in _cartProductList) {
+      totalPrice += element.price * element.qty!;
+    }
+    return totalPrice;
+  }
 
 //   //********************------------- this state is bascially work on to count the total price   -------------********************//
 
-//   double totalPriceBuyProductList() {
-//     double totalPrice = 0.0;
-//     for (var element in _buyProductList) {
-//       totalPrice += element.price * element.qty!;
-//     }
-//     return totalPrice;
-//   }
+  double totalPriceBuyProductList() {
+    double totalPrice = 0.0;
+    for (var element in _buyProductList) {
+      totalPrice += element.price * element.qty!;
+    }
+    return totalPrice;
+  }
 
-//   void updateQty(ProductModel productModel, int qty) {
-//     int index = _cartProductList.indexOf(productModel);
-//     _cartProductList[index].qty = qty;
-//     notifyListeners();
-//   }
+  void updateQty(ProductModel productModel, int qty) {
+    int index = _cartProductList.indexOf(productModel);
+    _cartProductList[index].qty = qty;
+    notifyListeners();
+  }
 
 //   //********************------------- this state is bascially work on to add buy product features  -------------********************//
 //   // ///////// BUY Product  / / // / / // / / / // /
 
-//   void addBuyProduct(ProductModel model) {
-//     _buyProductList.add(model);
-//     notifyListeners();
-//   }
+  void addBuyProduct(ProductModel model) {
+    _buyProductList.add(model);
+    notifyListeners();
+  }
 
-//   void addBuyProductCartList() {
-//     _buyProductList.addAll(_cartProductList);
-//     notifyListeners();
-//   }
+  void addBuyProductCartList() {
+    _buyProductList.addAll(_cartProductList);
+    notifyListeners();
+  }
 
-//   void clearCart() {
-//     _cartProductList.clear();
-//     notifyListeners();
-//   }
+  void clearCart() {
+    _cartProductList.clear();
+    notifyListeners();
+  }
 
-//   void clearBuyProduct() {
-//     _buyProductList.clear();
-//     notifyListeners();
-//   }
+  void clearBuyProduct() {
+    _buyProductList.clear();
+    notifyListeners();
+  }
 
-//   List<ProductModel> get getBuyProductList => _buyProductList;
+  List<ProductModel> get getBuyProductList => _buyProductList;
 }
