@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     AppProvider appProvider = Provider.of<AppProvider>(context, listen: false);
-    //appProvider.getUserInfoFirebase();
+    appProvider.getUserInfoFirebase();
     getCategoryList();
     super.initState();
   }

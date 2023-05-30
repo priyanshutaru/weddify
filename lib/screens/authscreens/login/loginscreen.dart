@@ -6,6 +6,7 @@ import 'package:weddify/constants/constantss/constantss.dart';
 import 'package:weddify/constants/routes/routes.dart';
 import 'package:weddify/firebase_helper/firebaseauth/firebaseauthhelper.dart';
 import 'package:weddify/screens/authscreens/register/registerscreen.dart';
+import 'package:weddify/screens/custom_bottombar/custom_bottombar.dart';
 import 'package:weddify/screens/home/homescreen.dart';
 import 'package:weddify/widgets/button/primaryelevatedbutton.dart';
 import 'package:weddify/widgets/toptext/toptext.dart';
@@ -88,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         .login(email.text, password.text, context);
                     if (isLogined) {
                       Routes.instance.pushAndRemoveUntil(
-                          widget: const HomeScreen(), context: context);
+                          widget: const CustomBottomBar(), context: context);
                     }
                   }
 

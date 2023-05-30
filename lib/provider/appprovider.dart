@@ -10,8 +10,6 @@ import 'package:weddify/firebase_helper/firebasefirestore/firebase_firestore.dar
 import 'package:weddify/models/bestvenue/bestvenuemodel.dart';
 import 'package:weddify/models/usermodel/usermodel.dart';
 
-
-
 class AppProvider with ChangeNotifier {
   //// Cart Work
   //********************------------- This is provider statemanagement to manage our app state.  -------------********************//
@@ -22,16 +20,13 @@ class AppProvider with ChangeNotifier {
   UserModel? _userModel;
 
   UserModel get getUserInformation => _userModel!;
-  
 
   //********************------------- this state is bascially..when we add the item in cart  -------------********************//
-
 
   void addCartProduct(ProductModel productModel) {
     _cartProductList.add(productModel);
     notifyListeners();
   }
-
 
 //   //********************------------- this state is work bascially..when we remove the item in cart  -------------********************//
 
@@ -41,7 +36,6 @@ class AppProvider with ChangeNotifier {
   }
 
   List<ProductModel> get getCartProductList => _cartProductList;
-
 
 //   //********************------------- this state is bascially work on to add faviroute features  -------------********************//
 //   ///// Favourite ///////
@@ -60,45 +54,9 @@ class AppProvider with ChangeNotifier {
   }
 
   List<ProductModel> get getFavouriteProductList => _favouriteProductList;
- 
 
 //   //********************------------- this state is bascially work on to take the information of the user and add it to screen -------------********************//
 //   // ////// USer Information
-//   // void getUserInfoFirebase() async {
-//   //   _userModel = await FirebaseFirestoreHelper.instance.getUserInformation();
-//   //   notifyListeners();
-//   // }
-
-//   // void updateUserInfoFirebase(
-//   //     BuildContext context, UserModel userModel, File? file) async {
-//   //   if (file == null) {
-//   //     showLoaderDialog(context);
-
-//   //     _userModel = userModel;
-//   //     await FirebaseFirestore.instance
-//   //         .collection("users")
-//   //         .doc(_userModel!.id)
-//   //         .set(_userModel!.toJson());
-//   //     Navigator.of(context, rootNavigator: true).pop();
-//   //     Navigator.of(context).pop();
-//   //   } else {
-//   //     showLoaderDialog(context);
-
-//   //     String imageUrl =
-//   //         await FirebaseStorageHelper.instance.uploadUserImage(file);
-//   //     _userModel = userModel.copyWith(image: imageUrl);
-//   //     await FirebaseFirestore.instance
-//   //         .collection("users")
-//   //         .doc(_userModel!.id)
-//   //         .set(_userModel!.toJson());
-//   //     Navigator.of(context, rootNavigator: true).pop();
-//   //     Navigator.of(context).pop();
-//   //   }
-//   //   toastMessage("Successfully updated profile");
-
-//   //   notifyListeners();
-//   // }
-
   void getUserInfoFirebase() async {
     _userModel = await FirebaseFirestoreHelper.instance.getUserInformation();
     notifyListeners();
@@ -134,6 +92,8 @@ class AppProvider with ChangeNotifier {
     notifyListeners();
   }
 
+
+  
 
 //   //********************------------- this state is bascially work on to add total price of the productes in cart and also at payment screen  -------------********************//
 //   // //////// TOTAL PRICE / // / // / / // / / / // /
