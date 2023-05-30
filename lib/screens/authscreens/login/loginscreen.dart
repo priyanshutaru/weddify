@@ -77,13 +77,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 15,
+              ),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Text(
+                  "forget password?",
+                  style: TextStyle(
+                      color: Colors.deepPurple, fontWeight: FontWeight.bold),
+                ),
+              ),
+              SizedBox(
+                height: 30,
               ),
               PrimaryElevatedButton(
                 title: 'Login',
-                onPressed: () async{
-
-                 bool isVaildated = loginVaildation(email.text, password.text);
+                onPressed: () async {
+                  bool isVaildated = loginVaildation(email.text, password.text);
                   if (isVaildated) {
                     bool isLogined = await FirebaseAuthHelper.instance
                         .login(email.text, password.text, context);
@@ -92,34 +102,38 @@ class _LoginScreenState extends State<LoginScreen> {
                           widget: const CustomBottomBar(), context: context);
                     }
                   }
-
-
                 },
               ),
               SizedBox(
                 height: 20,
               ),
-              Text(
-                "don't have an account??",
-                style: TextStyle(color: Colors.black, fontSize: 15),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => RegisterScreen()));
-                },
-                child: Text(
-                  "Register Here",
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "don't have an account??",
+                    style: TextStyle(color: Colors.black, fontSize: 15),
+                  ),
+                  SizedBox(
+                    height: 20,
+                    width: 5,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegisterScreen()));
+                    },
+                    child: Text(
+                      "Register Here",
+                      style: TextStyle(
+                          color: Colors.pink,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

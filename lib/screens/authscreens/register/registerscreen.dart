@@ -34,10 +34,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
         padding: const EdgeInsets.only(top: 0, right: 16, bottom: 16, left: 16),
         child: SingleChildScrollView(
           child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TopText(
-                  title: "Register Here",
-                  subtitle: "Welcome, Geeks Creat Your First Account"),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TopText(
+                      title: "      Register Here",
+                      subtitle: "Welcome, Geeks Creat Your First Account"),
+                ],
+              ),
               SizedBox(
                 height: 20,
               ),
@@ -93,11 +100,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     },
                     child: Icon(
                       Icons.visibility,
-                      color: isShowPassword ? Colors.pink : Colors.grey,
+                      color: isShowPassword ? Colors.grey : Colors.pink,
                     ),
                   ),
                   prefixIcon: Icon(
-                    Icons.mail_outline,
+                    Icons.lock,
                     color: Colors.grey,
                   ),
                 ),
@@ -124,25 +131,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
               SizedBox(
                 height: 20,
               ),
-              Text(
-                " I have already an account.",
-                style: TextStyle(color: Colors.black, fontSize: 15),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              InkWell(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
-                },
-                child: Text(
-                  "Login Here",
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    " I have already an account?",
+                    style: TextStyle(color: Colors.black, fontSize: 15),
+                  ),
+                  SizedBox(
+                    height: 20,
+                    width: 5,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreen()));
+                    },
+                    child: Text(
+                      "Login Here",
+                      style: TextStyle(
+                          color: Colors.pink,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
