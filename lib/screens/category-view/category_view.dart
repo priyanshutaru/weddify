@@ -85,7 +85,7 @@ class _CategoryViewState extends State<CategoryView> {
                               gridDelegate:
                                   const SliverGridDelegateWithFixedCrossAxisCount(
                                       mainAxisSpacing: 20,
-                                      crossAxisSpacing: 20,
+                                      crossAxisSpacing: 6,
                                       childAspectRatio: 0.7,
                                       crossAxisCount: 2),
                               itemBuilder: (ctx, index) {
@@ -93,50 +93,76 @@ class _CategoryViewState extends State<CategoryView> {
                                     productModelList[index];
                                 return Container(
                                   decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      bottomRight: Radius.circular(20),
+                                    ),
                                     color: Theme.of(context)
                                         .primaryColor
                                         .withOpacity(0.3),
-                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Column(
                                     children: [
                                       const SizedBox(
-                                        height: 12.0,
+                                        height: 15.0,
                                       ),
-                                      Image.network(
-                                        singleProduct.image,
+                                      Container(
                                         height: 100,
-                                        width: 100,
+                                        width: 150,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              width: 1, color: Colors.black),
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(20),
+                                            bottomRight: Radius.circular(20),
+                                          ),
+                                          image: DecorationImage(
+                                              image: NetworkImage(
+                                                  singleProduct.image),
+                                              fit: BoxFit.fill),
+                                        ),
+                                        // child: Image.network(
+                                        //   singleProduct.image,
+                                        //   height: 100,
+                                        //   width: 200,
+                                        // ),
                                       ),
-                                      const SizedBox(
+                                      SizedBox(
                                         height: 12.0,
                                       ),
                                       Text(
                                         singleProduct.name,
                                         style: const TextStyle(
-                                          fontSize: 18.0,
+                                          fontSize: 15.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      Text("Price: \$${singleProduct.price}"),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text("Price:"),
+                                          Text(singleProduct.price.toString()),
+                                        ],
+                                      ),
                                       const SizedBox(
-                                        height: 30.0,
+                                        height: 10.0,
                                       ),
                                       SizedBox(
                                         height: 45,
                                         width: 140,
                                         child: OutlinedButton(
-                                          onPressed: () {
-                                            // Routes.instance.push(
-                                            //     widget: ProductDetails(
-                                            //         singleProduct:
-                                            //             singleProduct),
-                                            //     context: context);
-                                          },
+                                          onPressed: () {},
                                           child: const Text(
-                                            "Buy",
+                                            "Book Now",
                                           ),
                                         ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
                                       ),
                                     ],
                                   ),

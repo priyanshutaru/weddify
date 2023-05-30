@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 ThemeData themeData = ThemeData(
-
   scaffoldBackgroundColor: Colors.white,
+  appBarTheme: AppBarTheme(
+    backgroundColor: Colors.pink[400],
+  ),
   primaryColor: Colors.pink,
-
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       backgroundColor: Colors.pink,
@@ -13,8 +14,6 @@ ThemeData themeData = ThemeData(
       ),
     ),
   ),
-
-
   inputDecorationTheme: InputDecorationTheme(
     border: outlineInputBorder,
     errorBorder: outlineInputBorder,
@@ -27,7 +26,6 @@ ThemeData themeData = ThemeData(
       side: BorderSide(color: Colors.red),
     ),
   ),
-
 );
 
 OutlineInputBorder outlineInputBorder = OutlineInputBorder(

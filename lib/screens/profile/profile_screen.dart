@@ -32,53 +32,53 @@ class _ProfilScreenState extends State<ProfilScreen> {
       ),
       body: Column(
         children: [
-          Expanded(
-            child: Center(
-              child: Column(
-                // crossAxisAlignment: CrossAxisAlignment.center,
-                // mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Text(
-                  //   "Profile",
-                  //   style: TextStyle(
-                  //       color: Colors.black,
-                  //       fontSize: 20,
-                  //       fontWeight: FontWeight.w300),
-                  // ),
-                  appProvider.getUserInformation.image == null
-                      ?  Icon(
-                          Icons.person_outline,
-                          size: 120,
-                        )
-                      : CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              appProvider.getUserInformation.image!),
-                          radius: 60,
-                        ),
-                  Text(
-                    appProvider.getUserInformation.name,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w300),
-                  ),
-                  Text(
-                    appProvider.getUserInformation.email,
-                    style: TextStyle(
-                      color: Colors.black,
-                    ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Routes.instance
-                          .push(widget: const EditProfile(), context: context);
-                    },
-                    child: Text("Edit Profile"),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          // Expanded(
+          //   child: Center(
+          //     child: Column(
+          //       // crossAxisAlignment: CrossAxisAlignment.center,
+          //       // mainAxisAlignment: MainAxisAlignment.center,
+          //       children: [
+          //         // Text(
+          //         //   "Profile",
+          //         //   style: TextStyle(
+          //         //       color: Colors.black,
+          //         //       fontSize: 20,
+          //         //       fontWeight: FontWeight.w300),
+          //         // ),
+          //         appProvider.getUserInformation.image == null
+          //             ?  Icon(
+          //                 Icons.person_outline,
+          //                 size: 120,
+          //               )
+          //             : CircleAvatar(
+          //                 backgroundImage: NetworkImage(
+          //                     appProvider.getUserInformation.image!),
+          //                 radius: 60,
+          //               ),
+          //         Text(
+          //           appProvider.getUserInformation.name,
+          //           style: TextStyle(
+          //               color: Colors.black,
+          //               fontSize: 20,
+          //               fontWeight: FontWeight.w300),
+          //         ),
+          //         Text(
+          //           appProvider.getUserInformation.email,
+          //           style: TextStyle(
+          //             color: Colors.black,
+          //           ),
+          //         ),
+          //         ElevatedButton(
+          //           onPressed: () {
+          //             Routes.instance
+          //                 .push(widget: const EditProfile(), context: context);
+          //           },
+          //           child: Text("Edit Profile"),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
           Expanded(
             flex: 2,
             child: Column(

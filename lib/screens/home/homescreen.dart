@@ -21,7 +21,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   List<CategoryModel> categoryList = [];
   List<ProductModel> bestproductsList = [];
 
@@ -49,10 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     }
   }
-  
-  
-  
-  
+
   TextEditingController search = TextEditingController();
   List<ProductModel> searchList = [];
   void searchProducts(String value) {
@@ -93,8 +89,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           onChanged: (String value) {
                             searchProducts(value);
                           },
-                          decoration:
-                              const InputDecoration(hintText: "Search...."),
+                          decoration: const InputDecoration(
+                            hintText: "Search....",
+                            prefixIcon: Icon(Icons.search),
+                          ),
                         ),
                         const SizedBox(
                           height: 24.0,
@@ -130,18 +128,27 @@ class _HomeScreenState extends State<HomeScreen> {
                                       },
                                       child: Column(
                                         children: [
-                                          Card(
-                                            color: Colors.white,
-                                            elevation: 3.0,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
+                                          Container(
+                                            height: 100,
+                                            width: 100,
+                                            decoration: BoxDecoration(
+                                              color: Colors.red,
+                                              border: Border.all(
+                                                  color: Colors.black,
+                                                  width: 1),
+                                              borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(10),
+                                                bottomRight:
+                                                    Radius.circular(10),
+                                              ),
+                                              image: DecorationImage(
+                                                  image: NetworkImage(e.image),
+                                                  fit: BoxFit.fill),
                                             ),
-                                            child: SizedBox(
-                                              height: 100,
-                                              width: 100,
-                                              child: Image.network(e.image),
-                                            ),
+                                            // child: Image.network(
+                                            //   e,
+                                            //   fit: BoxFit.fill,
+                                            // ),
                                           ),
                                           Text(e.name),
                                         ],
@@ -185,7 +192,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   gridDelegate:
                                       const SliverGridDelegateWithFixedCrossAxisCount(
                                           mainAxisSpacing: 20,
-                                          crossAxisSpacing: 20,
+                                          crossAxisSpacing: 6,
                                           childAspectRatio: 0.7,
                                           crossAxisCount: 2),
                                   itemBuilder: (ctx, index) {
@@ -193,33 +200,58 @@ class _HomeScreenState extends State<HomeScreen> {
                                         searchList[index];
                                     return Container(
                                       decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20),
+                                          bottomRight: Radius.circular(20),
+                                        ),
                                         color: Theme.of(context)
                                             .primaryColor
                                             .withOpacity(0.3),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
                                       ),
                                       child: Column(
                                         children: [
                                           const SizedBox(
-                                            height: 12.0,
+                                            height: 15.0,
                                           ),
-                                          Image.network(
-                                            singleProduct.image,
+                                          Container(
                                             height: 100,
-                                            width: 100,
+                                            width: 150,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  width: 1,
+                                                  color: Colors.black),
+                                              borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(20),
+                                                bottomRight:
+                                                    Radius.circular(20),
+                                              ),
+                                              image: DecorationImage(
+                                                  image: NetworkImage(
+                                                      singleProduct.image),
+                                                  fit: BoxFit.fill),
+                                            ),
+                                            // child: Image.network(
+                                            //   singleProduct.image,
+                                            //   height: 100,
+                                            //   width: 200,
+                                            // ),
                                           ),
-                                          const SizedBox(
+                                          SizedBox(
                                             height: 12.0,
                                           ),
                                           Text(
                                             singleProduct.name,
                                             style: const TextStyle(
-                                              fontSize: 18.0,
+                                              fontSize: 15.0,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
                                           Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
                                             children: [
                                               Text("Price:"),
                                               Text(singleProduct.price
@@ -227,7 +259,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             ],
                                           ),
                                           const SizedBox(
-                                            height: 15.0,
+                                            height: 10.0,
                                           ),
                                           SizedBox(
                                             height: 45,
@@ -241,9 +273,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     context: context);
                                               },
                                               child: const Text(
-                                                "Buy",
+                                                "Book Now",
                                               ),
                                             ),
+                                          ),
+                                          SizedBox(
+                                            height: 20,
                                           ),
                                         ],
                                       ),
@@ -265,7 +300,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       gridDelegate:
                                           const SliverGridDelegateWithFixedCrossAxisCount(
                                               mainAxisSpacing: 20,
-                                              crossAxisSpacing: 20,
+                                              crossAxisSpacing: 6,
                                               childAspectRatio: 0.7,
                                               crossAxisCount: 2),
                                       itemBuilder: (ctx, index) {
@@ -284,26 +319,41 @@ class _HomeScreenState extends State<HomeScreen> {
                                           child: Column(
                                             children: [
                                               const SizedBox(
-                                                height: 12.0,
+                                                height: 15.0,
                                               ),
-                                              Image.network(
-                                                singleProduct.image,
+                                              Container(
                                                 height: 100,
-                                                width: 100,
+                                                width: 150,
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      width: 1,
+                                                      color: Colors.black),
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(20),
+                                                    bottomRight:
+                                                        Radius.circular(20),
+                                                  ),
+                                                  image: DecorationImage(
+                                                      image: NetworkImage(
+                                                          singleProduct.image),
+                                                      fit: BoxFit.fill),
+                                                ),
+                                                // child: Image.network(
+                                                //   singleProduct.image,
+                                                //   height: 100,
+                                                //   width: 200,
+                                                // ),
                                               ),
-                                              const SizedBox(
+                                              SizedBox(
                                                 height: 12.0,
                                               ),
-                                              Expanded(
-                                                child: Center(
-                                                  child: Text(
-                                                    singleProduct.name,
-                                                    style: const TextStyle(
-                                                      fontSize: 18.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
+                                              Text(
+                                                singleProduct.name,
+                                                style: const TextStyle(
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
                                               ),
                                               SizedBox(
@@ -333,7 +383,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                         context: context);
                                                   },
                                                   child: const Text(
-                                                    "Buy",
+                                                    "Book Now",
                                                   ),
                                                 ),
                                               ),
@@ -471,85 +521,85 @@ class _HomeScreenState extends State<HomeScreen> {
 //                     primary: false,
 //                     itemCount: bestVenue.length,
 //                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//                         mainAxisSpacing: 20,
-//                         crossAxisSpacing: 6,
-//                         childAspectRatio: 0.7,
-//                         crossAxisCount: 2),
+                        // mainAxisSpacing: 20,
+                        // crossAxisSpacing: 6,
+                        // childAspectRatio: 0.7,
+                       // crossAxisCount: 2),
 //                     itemBuilder: ((context, index) {
 //                       ProductModel singleProduct = bestVenue[index];
-//                       return Container(
-//                         decoration: BoxDecoration(
-//                           borderRadius: BorderRadius.only(
-//                             topLeft: Radius.circular(20),
-//                             bottomRight: Radius.circular(20),
-//                           ),
-//                           color:
-//                               Theme.of(context).primaryColor.withOpacity(0.3),
-//                         ),
-//                         child: Column(
-//                           children: [
-//                             const SizedBox(
-//                               height: 15.0,
-//                             ),
-//                             Container(
-//                               height: 100,
-//                               width: 150,
-//                               decoration: BoxDecoration(
-//                                 border:
-//                                     Border.all(width: 1, color: Colors.black),
-//                                 borderRadius: BorderRadius.only(
-//                                   topLeft: Radius.circular(20),
-//                                   bottomRight: Radius.circular(20),
-//                                 ),
-//                                 image: DecorationImage(
-//                                     image: NetworkImage(singleProduct.image),
-//                                     fit: BoxFit.fill),
-//                               ),
-//                               // child: Image.network(
-//                               //   singleProduct.image,
-//                               //   height: 100,
-//                               //   width: 200,
-//                               // ),
-//                             ),
-//                             SizedBox(
-//                               height: 12.0,
-//                             ),
-//                             Text(
-//                               singleProduct.name,
-//                               style: const TextStyle(
-//                                 fontSize: 15.0,
-//                                 fontWeight: FontWeight.bold,
-//                               ),
-//                             ),
-//                             SizedBox(
-//                               height: 10,
-//                             ),
-//                             Row(
-//                               mainAxisAlignment: MainAxisAlignment.center,
-//                               children: [
-//                                 Text("Price:"),
-//                                 Text(singleProduct.price.toString()),
-//                               ],
-//                             ),
-//                             const SizedBox(
-//                               height: 10.0,
-//                             ),
-//                             SizedBox(
-//                               height: 45,
-//                               width: 140,
-//                               child: OutlinedButton(
-//                                 onPressed: () {},
-//                                 child: const Text(
-//                                   "Book Now",
-//                                 ),
-//                               ),
-//                             ),
-//                             SizedBox(
-//                               height: 20,
-//                             ),
-//                           ],
-//                         ),
-//                       );
+                      // return Container(
+                      //   decoration: BoxDecoration(
+                      //     borderRadius: BorderRadius.only(
+                      //       topLeft: Radius.circular(20),
+                      //       bottomRight: Radius.circular(20),
+                      //     ),
+                      //     color:
+                      //         Theme.of(context).primaryColor.withOpacity(0.3),
+                      //   ),
+                      //   child: Column(
+                      //     children: [
+                      //       const SizedBox(
+                      //         height: 15.0,
+                      //       ),
+                      //       Container(
+                      //         height: 100,
+                      //         width: 150,
+                      //         decoration: BoxDecoration(
+                      //           border:
+                      //               Border.all(width: 1, color: Colors.black),
+                      //           borderRadius: BorderRadius.only(
+                      //             topLeft: Radius.circular(20),
+                      //             bottomRight: Radius.circular(20),
+                      //           ),
+                      //           image: DecorationImage(
+                      //               image: NetworkImage(singleProduct.image),
+                      //               fit: BoxFit.fill),
+                      //         ),
+                      //         // child: Image.network(
+                      //         //   singleProduct.image,
+                      //         //   height: 100,
+                      //         //   width: 200,
+                      //         // ),
+                      //       ),
+                      //       SizedBox(
+                      //         height: 12.0,
+                      //       ),
+                      //       Text(
+                      //         singleProduct.name,
+                      //         style: const TextStyle(
+                      //           fontSize: 15.0,
+                      //           fontWeight: FontWeight.bold,
+                      //         ),
+                      //       ),
+                      //       SizedBox(
+                      //         height: 10,
+                      //       ),
+                      //       Row(
+                      //         mainAxisAlignment: MainAxisAlignment.center,
+                      //         children: [
+                      //           Text("Price:"),
+                      //           Text(singleProduct.price.toString()),
+                      //         ],
+                      //       ),
+                      //       const SizedBox(
+                      //         height: 10.0,
+                      //       ),
+                      //       SizedBox(
+                      //         height: 45,
+                      //         width: 140,
+                      //         child: OutlinedButton(
+                      //           onPressed: () {},
+                      //           child: const Text(
+                      //             "Book Now",
+                      //           ),
+                      //         ),
+                      //       ),
+                      //       SizedBox(
+                      //         height: 20,
+                      //       ),
+                      //     ],
+                      //   ),
+                      // );
 //                     }),
 //                   ),
 //                 ],
