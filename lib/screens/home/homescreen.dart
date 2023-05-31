@@ -69,7 +69,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 100,
                 width: 100,
                 alignment: Alignment.center,
-                child: const CircularProgressIndicator(),
+                child: const CircularProgressIndicator(
+                  color: Colors.pink,
+                ),
               ),
             )
           : SingleChildScrollView(
@@ -88,16 +90,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             TopText(subtitle: "", title: "Weddify"),
-                            IconButton(
-                              onPressed: () {
-                                FirebaseAuthHelper.instance.signout();
-                                setState(() {});
-                              },
-                              icon: Icon(
-                                Icons.logout_rounded,
-                                size: 30,
-                              ),
-                            ),
+                            // IconButton(
+                            //   onPressed: () {
+                            //     FirebaseAuthHelper.instance.signout();
+                            //     setState(() {});
+                            //   },
+                            //   icon: Icon(
+                            //     Icons.logout_rounded,
+                            //     size: 30,
+                            //   ),
+                            // ),
                           ],
                         ),
                         TextFormField(
@@ -147,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             height: 100,
                                             width: 100,
                                             decoration: BoxDecoration(
-                                              color: Colors.pink,
+                                              color: Colors.pink[400],
                                               border: Border.all(
                                                   color: Colors.grey, width: 1),
                                               borderRadius: BorderRadius.only(
