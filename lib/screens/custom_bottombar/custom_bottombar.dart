@@ -44,8 +44,8 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           inactiveColorPrimary: Colors.white,
         ),
         PersistentBottomNavBarItem(
-          icon: const Icon(Icons.circle_rounded),
-          inactiveIcon: const Icon(Icons.circle_outlined),
+          icon: const Icon(Icons.shopping_bag),
+          inactiveIcon: const Icon(Icons.shopping_bag_outlined),
           title: "Orders",
           activeColorPrimary: Colors.white,
           inactiveColorPrimary: Colors.white,

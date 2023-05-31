@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:weddify/constants/constantss/constantss.dart';
 import 'package:weddify/firebase_helper/firebaseauth/firebaseauthhelper.dart';
 
-
 class ChangePassword extends StatefulWidget {
   const ChangePassword({super.key});
 
@@ -27,7 +26,8 @@ class _ChangePasswordState extends State<ChangePassword> {
             color: Colors.black,
           ),
         ),
-        elevation: 0,
+        centerTitle: true,
+        elevation: 1,
         iconTheme: IconThemeData(color: Colors.black),
       ),
       body: ListView(

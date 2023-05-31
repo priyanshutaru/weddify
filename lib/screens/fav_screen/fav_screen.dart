@@ -22,8 +22,16 @@ class _FavScreenState extends State<FavScreen> {
     AppProvider appProvider = Provider.of<AppProvider>(context);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Text(
+          "My Fav Items",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        centerTitle: true,
+        elevation: 1,
         iconTheme: IconThemeData(color: Colors.black),
-        title: Text("My Fav Item"),
       ),
       body: appProvider.getFavouriteProductList.isEmpty
           ? Center(

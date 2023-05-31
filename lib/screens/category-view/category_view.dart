@@ -38,9 +38,21 @@ class _CategoryViewState extends State<CategoryView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        title: Text(widget.categoryModel.name),
+        backgroundColor: Colors.white,
+        title: Text(
+          widget.categoryModel.name,
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        centerTitle: true,
+        elevation: 1,
+        iconTheme: IconThemeData(color: Colors.black),
       ),
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   title: Text(widget.categoryModel.name),
+      // ),
       body: isLoading
           ? Center(
               child: Container(

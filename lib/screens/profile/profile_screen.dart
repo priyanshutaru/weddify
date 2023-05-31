@@ -45,8 +45,8 @@ class _ProfilScreenState extends State<ProfilScreen> {
                   //       fontSize: 20,
                   //       fontWeight: FontWeight.w300),
                   // ),
-                  appProvider.getUserInformation.image==null
-                      ?  Icon(
+                  appProvider.getUserInformation.image == null
+                      ? Icon(
                           Icons.person_outline,
                           size: 120,
                         )
@@ -97,13 +97,6 @@ class _ProfilScreenState extends State<ProfilScreen> {
                 ),
                 ListTile(
                   onTap: () {
-                    Routes.instance.push(widget: AboutUs(), context: context);
-                  },
-                  leading: Icon(Icons.accessibility_outlined),
-                  title: Text("About Us"),
-                ),
-                ListTile(
-                  onTap: () {
                     Routes.instance
                         .push(widget: ChangePassword(), context: context);
                   },
@@ -114,6 +107,13 @@ class _ProfilScreenState extends State<ProfilScreen> {
                   onTap: () {},
                   leading: Icon(Icons.support_agent_outlined),
                   title: Text("Support"),
+                ),
+                ListTile(
+                  onTap: () {
+                    Routes.instance.push(widget: AboutUs(), context: context);
+                  },
+                  leading: Icon(Icons.accessibility_outlined),
+                  title: Text("About Us"),
                 ),
                 ListTile(
                   onTap: () {

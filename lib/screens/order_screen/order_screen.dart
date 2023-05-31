@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:weddify/firebase_helper/firebasefirestore/firebase_firestore.dart';
 import 'package:weddify/models/order-model/order-model.dart';
 
-
 class OrederScreen extends StatelessWidget {
   const OrederScreen({super.key});
 
@@ -18,7 +17,7 @@ class OrederScreen extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        elevation: 0,
+        elevation: 1,
       ),
       body: StreamBuilder(
         stream: Stream.fromFuture(

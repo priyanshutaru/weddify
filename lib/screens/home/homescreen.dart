@@ -83,7 +83,22 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const TopText(subtitle: "", title: "Weddify"),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TopText(subtitle: "", title: "Weddify"),
+                            IconButton(
+                              onPressed: () {
+                                FirebaseAuthHelper.instance.signout();
+                                setState(() {});
+                              },
+                              icon: Icon(
+                                Icons.logout_rounded,
+                                size: 30,
+                              ),
+                            ),
+                          ],
+                        ),
                         TextFormField(
                           controller: search,
                           onChanged: (String value) {
@@ -132,10 +147,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                             height: 100,
                                             width: 100,
                                             decoration: BoxDecoration(
-                                              color: Colors.red,
+                                              color: Colors.pink,
                                               border: Border.all(
-                                                  color: Colors.black,
-                                                  width: 1),
+                                                  color: Colors.grey, width: 1),
                                               borderRadius: BorderRadius.only(
                                                 topLeft: Radius.circular(10),
                                                 bottomRight:
@@ -218,8 +232,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             width: 150,
                                             decoration: BoxDecoration(
                                               border: Border.all(
-                                                  width: 1,
-                                                  color: Colors.black),
+                                                  width: 1, color: Colors.grey),
                                               borderRadius: BorderRadius.only(
                                                 topLeft: Radius.circular(20),
                                                 bottomRight:
@@ -327,7 +340,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 decoration: BoxDecoration(
                                                   border: Border.all(
                                                       width: 1,
-                                                      color: Colors.black),
+                                                      color: Colors.grey),
                                                   borderRadius:
                                                       BorderRadius.only(
                                                     topLeft:

@@ -8,6 +8,7 @@ import 'package:weddify/constants/constantss/constantss.dart';
 import 'package:weddify/constants/routes/routes.dart';
 import 'package:weddify/models/bestvenue/bestvenuemodel.dart';
 import 'package:weddify/provider/appprovider.dart';
+import 'package:weddify/screens/cart_screen/cart_screen.dart';
 import 'package:weddify/screens/checkout_screens/checkout_screen.dart';
 
 class ProductsDeatials extends StatefulWidget {
@@ -26,6 +27,11 @@ class _ProductsDeatialsState extends State<ProductsDeatials> {
     AppProvider appProvider = Provider.of<AppProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        // title: Text(
+        //   widget.singleProduct.name,
+        //   style: TextStyle(color: Colors.black),
+        // ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
@@ -33,7 +39,7 @@ class _ProductsDeatialsState extends State<ProductsDeatials> {
         actions: [
           IconButton(
             onPressed: () {
-              // Routes.instance.push(widget: CartScreen(), context: context);
+              Routes.instance.push(widget: CartScreen(), context: context);
             },
             icon: Icon(
               Icons.shopping_cart,
@@ -45,15 +51,33 @@ class _ProductsDeatialsState extends State<ProductsDeatials> {
         padding: const EdgeInsets.only(left: 16, right: 16),
         child: Column(
           children: [
-            Image.network(
-              widget.singleProduct.image.toString(),
-              height: 300,
-              width: 300,
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Container(
+                height: 300,
+                width: 300,
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey, width: 1),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                  ),
+                  image: DecorationImage(
+                      image: NetworkImage(
+                        widget.singleProduct.image.toString(),
+                      ),
+                      fit: BoxFit.fill),
+                ),
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(widget.singleProduct.name),
+                Text(
+                  widget.singleProduct.name,
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
                 IconButton(
                   onPressed: () {
                     setState(
@@ -92,7 +116,11 @@ class _ProductsDeatialsState extends State<ProductsDeatials> {
                     });
                   },
                   child: CircleAvatar(
-                    child: Icon(Icons.remove),
+                    backgroundColor: Colors.pink[400],
+                    child: Icon(
+                      Icons.remove,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -115,6 +143,7 @@ class _ProductsDeatialsState extends State<ProductsDeatials> {
                     });
                   },
                   child: CircleAvatar(
+                    backgroundColor: Colors.pink[400],
                     child: Icon(
                       Icons.add,
                       color: Colors.white,
@@ -142,7 +171,7 @@ class _ProductsDeatialsState extends State<ProductsDeatials> {
                     },
                     child: Text(
                       "Add To Cart",
-                      style: TextStyle(color: Colors.red),
+                      style: TextStyle(),
                     ),
                   ),
                 ),
@@ -156,8 +185,11 @@ class _ProductsDeatialsState extends State<ProductsDeatials> {
                       onPressed: () {
                         ProductModel productModel =
                             widget.singleProduct.copyWith(qty: qty);
-                        Routes.instance
-                            .push(widget: CheckoutScreen(singleProduct: productModel,), context: context);
+                        Routes.instance.push(
+                            widget: CheckoutScreen(
+                              singleProduct: productModel,
+                            ),
+                            context: context);
                       },
                       child: Text("Buy"),
                     )),

@@ -7,14 +7,16 @@ class AboutUs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        // backgroundColor: Colo,
+        backgroundColor: Colors.white,
         title: const Text(
           "About Us",
           style: TextStyle(
             color: Colors.black,
           ),
         ),
+        centerTitle: true,
+        elevation: 1,
+        iconTheme: IconThemeData(color: Colors.black),
       ),
       body: const Padding(
         padding: EdgeInsets.all(12.0),
