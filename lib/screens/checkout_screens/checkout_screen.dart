@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
 import 'package:weddify/constants/routes/routes.dart';
@@ -25,8 +26,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     );
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        title: Text("Check-out"),
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text(
+          "Check-out",
+          style: GoogleFonts.kurale(),
+        ),
         centerTitle: true,
       ),
       body: Padding(
@@ -58,11 +62,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   const SizedBox(
                     width: 12.0,
                   ),
-                  const Text(
+                  Text(
                     "Cash on Delivery",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
+                    style: GoogleFonts.kurale(
+                      fontSize: 20,
                     ),
                   ),
                 ],
@@ -93,12 +96,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   const SizedBox(
                     width: 12.0,
                   ),
-                  const Text(
+                  Text(
                     "Pay Online",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: GoogleFonts.kurale(fontSize: 20),
                   ),
                 ],
               ),
@@ -110,7 +110,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               height: 45,
               width: double.infinity,
               child: ElevatedButton(
-                child: Text("Continue"),
+                child: Text(
+                  "Continue",
+                  style: GoogleFonts.kurale(),
+                ),
                 onPressed: () async {
                   appProvider.clearBuyProduct();
                   appProvider.addBuyProduct(widget.singleProduct);
@@ -130,7 +133,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       });
                     }
                   } else {
-
                     int value = double.parse(
                             appProvider.totalPriceBuyProductList().toString())
                         .round()

@@ -2,13 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:weddify/models/usermodel/usermodel.dart';
 import 'package:weddify/provider/appprovider.dart';
-
-
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
@@ -39,9 +38,10 @@ class _EditProfileState extends State<EditProfile> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
-        title: const Text(
+        title: Text(
           "Profile",
-          style: TextStyle(
+          style: GoogleFonts.kurale(
+            // fontSize: 12,
             color: Colors.black,
           ),
         ),
@@ -81,7 +81,12 @@ class _EditProfileState extends State<EditProfile> {
           Container(
             height: 45,
             child: ElevatedButton(
-              child: Text("Update"),
+              child: Text(
+                "Update",
+                style: GoogleFonts.kurale(
+                    // fontSize: 12,
+                    ),
+              ),
               onPressed: () async {
                 UserModel userModel = appProvider.getUserInformation
                     .copyWith(name: textEditingController.text);

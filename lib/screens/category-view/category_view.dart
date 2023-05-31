@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:weddify/firebase_helper/firebasefirestore/firebase_firestore.dart';
 
 import 'package:weddify/models/bestvenue/bestvenuemodel.dart';
@@ -41,7 +42,8 @@ class _CategoryViewState extends State<CategoryView> {
         backgroundColor: Colors.white,
         title: Text(
           widget.categoryModel.name,
-          style: TextStyle(
+          style: GoogleFonts.kurale(
+            //fontSize: 20,
             color: Colors.black,
           ),
         ),
@@ -84,8 +86,14 @@ class _CategoryViewState extends State<CategoryView> {
                   //   ),
                   // ),
                   productModelList.isEmpty
-                      ? const Center(
-                          child: Text("Best Product is empty"),
+                      ? Center(
+                          child: Text(
+                            "Best Product is empty",
+                            style: GoogleFonts.kurale(
+                              //fontSize: 20,
+                              color: Colors.black,
+                            ),
+                          ),
                         )
                       : Padding(
                           padding: const EdgeInsets.all(12.0),
@@ -140,13 +148,13 @@ class _CategoryViewState extends State<CategoryView> {
                                         // ),
                                       ),
                                       SizedBox(
-                                        height: 12.0,
+                                        height: 10.0,
                                       ),
                                       Text(
                                         singleProduct.name,
-                                        style: const TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.bold,
+                                        style: GoogleFonts.kurale(
+                                          //fontSize: 20,
+                                          color: Colors.black,
                                         ),
                                       ),
                                       SizedBox(
@@ -156,8 +164,20 @@ class _CategoryViewState extends State<CategoryView> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Text("Price:"),
-                                          Text(singleProduct.price.toString()),
+                                          Text(
+                                            "Price:",
+                                            style: GoogleFonts.kurale(
+                                              //fontSize: 20,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                          Text(
+                                            singleProduct.price.toString(),
+                                            style: GoogleFonts.kurale(
+                                              //fontSize: 20,
+                                              color: Colors.black,
+                                            ),
+                                          ),
                                         ],
                                       ),
                                       const SizedBox(
@@ -168,8 +188,12 @@ class _CategoryViewState extends State<CategoryView> {
                                         width: 140,
                                         child: OutlinedButton(
                                           onPressed: () {},
-                                          child: const Text(
+                                          child: Text(
                                             "Book Now",
+                                            style: GoogleFonts.kurale(
+                                                //fontSize: 20,
+                                                //color: Colors.black,
+                                                ),
                                           ),
                                         ),
                                       ),

@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:weddify/screens/cart_screen/cart_screen.dart';
@@ -33,6 +34,10 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           icon: const Icon(Icons.home),
           inactiveIcon: const Icon(Icons.home_outlined),
           title: "Home",
+          textStyle: GoogleFonts.kurale(
+            //fontSize: 20,
+            color: Colors.black,
+          ),
           activeColorPrimary: Colors.white,
           inactiveColorPrimary: Colors.white,
         ),
@@ -40,6 +45,10 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           icon: const Icon(Icons.shopping_cart),
           inactiveIcon: const Icon(Icons.shopping_cart_outlined),
           title: "Cart",
+          textStyle: GoogleFonts.kurale(
+            //fontSize: 20,
+            color: Colors.black,
+          ),
           activeColorPrimary: Colors.white,
           inactiveColorPrimary: Colors.white,
         ),
@@ -47,6 +56,10 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           icon: const Icon(Icons.shopping_bag),
           inactiveIcon: const Icon(Icons.shopping_bag_outlined),
           title: "Orders",
+          textStyle: GoogleFonts.kurale(
+            //fontSize: 20,
+            color: Colors.black,
+          ),
           activeColorPrimary: Colors.white,
           inactiveColorPrimary: Colors.white,
         ),
@@ -54,6 +67,10 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           icon: const Icon(Icons.person),
           inactiveIcon: const Icon(Icons.person_outline),
           title: "Profile",
+          textStyle: GoogleFonts.kurale(
+            //fontSize: 20,
+            color: Colors.black,
+          ),
           activeColorPrimary: Colors.white,
           inactiveColorPrimary: Colors.white,
         ),

@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
 import 'package:weddify/constants/constantss/constantss.dart';
@@ -63,17 +64,17 @@ class _SingleFavItemState extends State<SingleFavItem> {
                         children: [
                           Text(
                             widget.singleProduct.name,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
+                            style: GoogleFonts.kurale(
+                              fontSize: 20,
+                              color: Colors.black,
+                            ),
                           ),
                           Text(
                             widget.singleProduct.price.toString(),
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
+                            style: GoogleFonts.kurale(
+                              //fontSize: 20,
+                              color: Colors.deepPurple,
+                            ),
                           ),
                         ],
                       ),
@@ -96,9 +97,10 @@ class _SingleFavItemState extends State<SingleFavItem> {
                             },
                             child: Text(
                               "Remove Form Wishlist",
-                              style: TextStyle(
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.bold),
+                              style: GoogleFonts.kurale(
+                                //fontSize: 20,
+                                color: Colors.pink[400],
+                              ),
                             ),
                           ),
                           // CupertinoButton(

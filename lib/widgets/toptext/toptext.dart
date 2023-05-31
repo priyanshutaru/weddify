@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TopText extends StatelessWidget {
   final String title, subtitle;
@@ -13,7 +14,7 @@ class TopText extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(
+          style: GoogleFonts.kurale(
             fontSize: 30,
           ),
         ),
@@ -22,9 +23,9 @@ class TopText extends StatelessWidget {
         ),
         Text(
           subtitle,
-          style: TextStyle(
-              //fontSize: 30,
-              ),
+           style: GoogleFonts.kurale(
+            //fontSize: 30,
+          ),
         ),
       ],
     );

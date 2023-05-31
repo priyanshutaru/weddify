@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
 import 'package:weddify/constants/constantss/constantss.dart';
@@ -33,36 +34,41 @@ class _CartScreenState extends State<CartScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     "Total",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
+                    style: GoogleFonts.kurale(
+                      fontSize: 20,
                     ),
                   ),
                   Text(
                     appProvider.totalPrice().toString(),
-                    style: const TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
+                    style: GoogleFonts.kurale(
+                      fontSize: 20,
                     ),
                   ),
                 ],
               ),
               const SizedBox(
-                height: 24.0,
+                height: 10.0,
               ),
               Container(
                 height: 45,
                 width: double.infinity,
                 child: ElevatedButton(
-                  child: Text("Checkout"),
+                  child: Text(
+                    "Checkout",
+                    style: GoogleFonts.kurale(
+                      fontSize: 20,
+                    ),
+                  ),
                   onPressed: () {
                     appProvider.clearBuyProduct();
                     appProvider.addBuyProductCartList();
                     appProvider.clearCart();
                     if (appProvider.getBuyProductList.isEmpty) {
-                      toastMessage("Cart is empty");
+                      toastMessage(
+                        "Cart is empty",
+                      );
                     } else {
                       Routes.instance
                           .push(widget: CartItemCheckout(), context: context);
@@ -77,9 +83,10 @@ class _CartScreenState extends State<CartScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           "My Cart",
-          style: TextStyle(
+          style: GoogleFonts.kurale(
+            fontSize: 20,
             color: Colors.black,
           ),
         ),
@@ -89,7 +96,9 @@ class _CartScreenState extends State<CartScreen> {
           ? Center(
               child: Text(
                 "Cart is Empty",
-                style: TextStyle(color: Colors.black, fontSize: 25),
+                style: GoogleFonts.kurale(
+                  fontSize: 25,
+                ),
               ),
             )
           : ListView.builder(

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:weddify/constants/constantss/constantss.dart';
 import 'package:weddify/firebase_helper/firebaseauth/firebaseauthhelper.dart';
 
@@ -20,9 +21,10 @@ class _ChangePasswordState extends State<ChangePassword> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text(
+        title: Text(
           "Change Password",
-          style: TextStyle(
+          style: GoogleFonts.kurale(
+            fontSize: 20,
             color: Colors.black,
           ),
         ),
@@ -34,10 +36,27 @@ class _ChangePasswordState extends State<ChangePassword> {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
         children: [
           TextFormField(
+            controller: confirmpassword,
+            obscureText: isShowPassword,
+            decoration: const InputDecoration(
+              hintText: "New Password",
+              prefixIcon: Icon(
+                Icons.password_sharp,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 24.0,
+          ),
+          TextFormField(
             controller: newpassword,
             obscureText: isShowPassword,
             decoration: InputDecoration(
-              hintText: "New Password",
+              hintText: "Confirm Password",
+              // hintStyle: GoogleFonts.kurale(
+              //   fontSize: 20,
+              //   //color: Colors.black,
+              // ),
               prefixIcon: const Icon(
                 Icons.password_sharp,
               ),
@@ -48,23 +67,10 @@ class _ChangePasswordState extends State<ChangePassword> {
                     });
                   },
                   padding: EdgeInsets.zero,
-                  child: const Icon(
+                  child:  Icon(
                     Icons.visibility,
-                    color: Colors.grey,
+                    color: isShowPassword ? Colors.grey : Colors.pink,
                   )),
-            ),
-          ),
-          const SizedBox(
-            height: 24.0,
-          ),
-          TextFormField(
-            controller: confirmpassword,
-            obscureText: isShowPassword,
-            decoration: const InputDecoration(
-              hintText: "Confrim Password",
-              prefixIcon: Icon(
-                Icons.password_sharp,
-              ),
             ),
           ),
           const SizedBox(
@@ -73,7 +79,13 @@ class _ChangePasswordState extends State<ChangePassword> {
           Container(
             height: 45,
             child: ElevatedButton(
-              child: Text("Update"),
+              child: Text(
+                "Update",
+                style: GoogleFonts.kurale(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
               onPressed: () async {
                 if (newpassword.text.isEmpty) {
                   toastMessage("New Password is empty");

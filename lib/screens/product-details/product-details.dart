@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
 import 'package:weddify/constants/constantss/constantss.dart';
@@ -47,158 +48,174 @@ class _ProductsDeatialsState extends State<ProductsDeatials> {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Container(
-                height: 300,
-                width: 300,
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey, width: 1),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 16, right: 16),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Container(
+                  height: 300,
+                  width: 300,
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey, width: 1),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    ),
+                    image: DecorationImage(
+                        image: NetworkImage(
+                          widget.singleProduct.image.toString(),
+                        ),
+                        fit: BoxFit.fill),
                   ),
-                  image: DecorationImage(
-                      image: NetworkImage(
-                        widget.singleProduct.image.toString(),
-                      ),
-                      fit: BoxFit.fill),
                 ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  widget.singleProduct.name,
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                ),
-                IconButton(
-                  onPressed: () {
-                    setState(
-                      () {
-                        widget.singleProduct.isFavourite =
-                            !widget.singleProduct.isFavourite;
-                      },
-                    );
-                    if (widget.singleProduct.isFavourite) {
-                      appProvider.addFavouriteProduct(widget.singleProduct);
-                    } else {
-                      appProvider.removeFavouriteProduct(widget.singleProduct);
-                    }
-                  },
-                  icon: Icon(
-                    appProvider.getFavouriteProductList
-                            .contains(widget.singleProduct)
-                        ? Icons.favorite
-                        : Icons.favorite_border,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    widget.singleProduct.name,
+                    style: GoogleFonts.kurale(
+                        fontSize: 25, fontWeight: FontWeight.bold),
                   ),
-                ),
-              ],
-            ),
-            Text(widget.singleProduct.description),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              children: [
-                CupertinoButton(
-                  onPressed: () {
-                    setState(() {
-                      if (qty >= 2) {
-                        qty--;
-                      }
-                    });
-                  },
-                  child: CircleAvatar(
-                    backgroundColor: Colors.pink[400],
-                    child: Icon(
-                      Icons.remove,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  qty.toString(),
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                CupertinoButton(
-                  onPressed: () {
-                    setState(() {
-                      qty++;
-                    });
-                  },
-                  child: CircleAvatar(
-                    backgroundColor: Colors.pink[400],
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            // Spacer(),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 45,
-                  width: 150,
-                  child: OutlinedButton(
+                  IconButton(
                     onPressed: () {
-                      ProductModel productModel =
-                          widget.singleProduct.copyWith(qty: qty);
-                      appProvider.addCartProduct(productModel);
-                      toastMessage("Item Added");
+                      setState(
+                        () {
+                          widget.singleProduct.isFavourite =
+                              !widget.singleProduct.isFavourite;
+                        },
+                      );
+                      if (widget.singleProduct.isFavourite) {
+                        appProvider.addFavouriteProduct(widget.singleProduct);
+                      } else {
+                        appProvider
+                            .removeFavouriteProduct(widget.singleProduct);
+                      }
                     },
-                    child: Text(
-                      "Add To Cart",
-                      style: TextStyle(),
+                    icon: Icon(
+                      appProvider.getFavouriteProductList
+                              .contains(widget.singleProduct)
+                          ? Icons.favorite
+                          : Icons.favorite_border,
                     ),
                   ),
+                ],
+              ),
+              Text(
+                widget.singleProduct.description,
+                style: GoogleFonts.kurale(
+                  fontSize: 15,
                 ),
-                SizedBox(
-                  width: 15,
-                ),
-                Container(
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                children: [
+                  CupertinoButton(
+                    onPressed: () {
+                      setState(() {
+                        if (qty >= 2) {
+                          qty--;
+                        }
+                      });
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Colors.pink[400],
+                      child: Icon(
+                        Icons.remove,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    qty.toString(),
+                    style: GoogleFonts.kurale(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  CupertinoButton(
+                    onPressed: () {
+                      setState(() {
+                        qty++;
+                      });
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Colors.pink[400],
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              // Spacer(),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
                     height: 45,
                     width: 150,
-                    child: ElevatedButton(
+                    child: OutlinedButton(
                       onPressed: () {
                         ProductModel productModel =
                             widget.singleProduct.copyWith(qty: qty);
-                        Routes.instance.push(
-                            widget: CheckoutScreen(
-                              singleProduct: productModel,
-                            ),
-                            context: context);
+                        appProvider.addCartProduct(productModel);
+                        toastMessage("Item Added");
                       },
-                      child: Text("Buy"),
-                    )),
-              ],
-            ),
-            // SizedBox(
-            //   height: 50,
-            // ),
-          ],
+                      child: Text(
+                        "Add To Cart",
+                        style: GoogleFonts.kurale(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Container(
+                      height: 45,
+                      width: 150,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          ProductModel productModel =
+                              widget.singleProduct.copyWith(qty: qty);
+                          Routes.instance.push(
+                              widget: CheckoutScreen(
+                                singleProduct: productModel,
+                              ),
+                              context: context);
+                        },
+                        child: Text(
+                          "Buy",
+                          style: GoogleFonts.kurale(
+                            fontSize: 15,
+                          ),
+                        ),
+                      )),
+                ],
+              ),
+              // SizedBox(
+              //   height: 50,
+              // ),
+            ],
+          ),
         ),
       ),
     );

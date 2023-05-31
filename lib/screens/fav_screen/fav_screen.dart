@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
 import 'package:weddify/provider/appprovider.dart';
@@ -23,9 +24,10 @@ class _FavScreenState extends State<FavScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text(
+        title: Text(
           "My Fav Items",
-          style: TextStyle(
+          style: GoogleFonts.kurale(
+            fontSize: 20,
             color: Colors.black,
           ),
         ),
@@ -37,7 +39,10 @@ class _FavScreenState extends State<FavScreen> {
           ? Center(
               child: Text(
                 "List Is Empty",
-                style: TextStyle(color: Colors.black, fontSize: 25),
+                style: GoogleFonts.kurale(
+                  fontSize: 20,
+                  color: Colors.black,
+                ),
               ),
             )
           : ListView.builder(

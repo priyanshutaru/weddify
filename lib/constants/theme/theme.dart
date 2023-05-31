@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 ThemeData themeData = ThemeData(
   scaffoldBackgroundColor: Colors.white,
@@ -15,6 +16,10 @@ ThemeData themeData = ThemeData(
     ),
   ),
   inputDecorationTheme: InputDecorationTheme(
+    hintStyle: GoogleFonts.kurale(
+      fontSize: 20,
+      //color: Colors.black,
+    ),
     border: outlineInputBorder,
     errorBorder: outlineInputBorder,
     focusedBorder: outlineInputBorder,

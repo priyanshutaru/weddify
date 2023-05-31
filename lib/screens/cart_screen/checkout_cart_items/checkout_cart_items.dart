@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
 import 'package:weddify/constants/routes/routes.dart';
@@ -29,9 +30,10 @@ class _CartItemCheckoutState extends State<CartItemCheckout> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           "CartItemCheckout",
-          style: TextStyle(
+          style: GoogleFonts.kurale(
+            fontSize: 20,
             color: Colors.black,
           ),
         ),
@@ -65,11 +67,10 @@ class _CartItemCheckoutState extends State<CartItemCheckout> {
                   const SizedBox(
                     width: 12.0,
                   ),
-                  const Text(
+                  Text(
                     "Cash on Delivery",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
+                    style: GoogleFonts.kurale(
+                      fontSize: 18,
                     ),
                   ),
                 ],
@@ -100,11 +101,10 @@ class _CartItemCheckoutState extends State<CartItemCheckout> {
                   const SizedBox(
                     width: 12.0,
                   ),
-                  const Text(
+                  Text(
                     "Pay Online",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
+                    style: GoogleFonts.kurale(
+                      fontSize: 18,
                     ),
                   ),
                 ],

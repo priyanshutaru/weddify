@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:weddify/firebase_helper/firebasefirestore/firebase_firestore.dart';
 import 'package:weddify/models/order-model/order-model.dart';
 
@@ -11,10 +12,12 @@ class OrederScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        title: const Text(
+        title: Text(
           "Your Orders",
-          style: TextStyle(
+          style: GoogleFonts.kurale(
+            fontSize: 18,
             color: Colors.black,
+            //fontWeight: FontWeight.bold,
           ),
         ),
         elevation: 1,
@@ -33,8 +36,13 @@ class OrederScreen extends StatelessWidget {
           if (snapshot.data!.isEmpty ||
               snapshot.data == null ||
               !snapshot.hasData) {
-            return const Center(
-              child: Text("No Order Found"),
+            return Center(
+              child: Text(
+                "No Order Found",
+                style: GoogleFonts.kurale(
+                  fontSize: 20,
+                ),
+              ),
             );
           }
 
@@ -75,8 +83,8 @@ class OrederScreen extends StatelessWidget {
                             children: [
                               Text(
                                 orderModel.products[0].name,
-                                style: const TextStyle(
-                                  fontSize: 12.0,
+                                style: GoogleFonts.kurale(
+                                  fontSize: 14,
                                 ),
                               ),
                               const SizedBox(
@@ -88,8 +96,8 @@ class OrederScreen extends StatelessWidget {
                                       children: [
                                         Text(
                                           "Quanity: ${orderModel.products[0].qty.toString()}",
-                                          style: const TextStyle(
-                                            fontSize: 12.0,
+                                          style: GoogleFonts.kurale(
+                                            fontSize: 12,
                                           ),
                                         ),
                                         const SizedBox(
@@ -99,8 +107,8 @@ class OrederScreen extends StatelessWidget {
                                     ),
                               Text(
                                 "Total Price: \$${orderModel.totalPrice.toString()}",
-                                style: const TextStyle(
-                                  fontSize: 12.0,
+                                style: GoogleFonts.kurale(
+                                  fontSize: 12,
                                 ),
                               ),
                               const SizedBox(
@@ -108,8 +116,8 @@ class OrederScreen extends StatelessWidget {
                               ),
                               Text(
                                 "Order Status: ${orderModel.status}",
-                                style: const TextStyle(
-                                  fontSize: 12.0,
+                                style: GoogleFonts.kurale(
+                                  fontSize: 12,
                                 ),
                               ),
                             ],
@@ -119,7 +127,12 @@ class OrederScreen extends StatelessWidget {
                     ),
                     children: orderModel.products.length > 1
                         ? [
-                            const Text("Details"),
+                            Text(
+                              "Details",
+                              style: GoogleFonts.kurale(
+                                fontSize: 15,
+                              ),
+                            ),
                             Divider(color: Theme.of(context).primaryColor),
                             ...orderModel.products.map((singleProduct) {
                               return Padding(
@@ -150,8 +163,8 @@ class OrederScreen extends StatelessWidget {
                                             children: [
                                               Text(
                                                 singleProduct.name,
-                                                style: const TextStyle(
-                                                  fontSize: 12.0,
+                                                style: GoogleFonts.kurale(
+                                                  fontSize: 12,
                                                 ),
                                               ),
                                               const SizedBox(
@@ -161,8 +174,8 @@ class OrederScreen extends StatelessWidget {
                                                 children: [
                                                   Text(
                                                     "Quanity: ${singleProduct.qty.toString()}",
-                                                    style: const TextStyle(
-                                                      fontSize: 12.0,
+                                                    style: GoogleFonts.kurale(
+                                                      fontSize: 12,
                                                     ),
                                                   ),
                                                   const SizedBox(
@@ -172,8 +185,8 @@ class OrederScreen extends StatelessWidget {
                                               ),
                                               Text(
                                                 "Price: \$${singleProduct.price.toString()}",
-                                                style: const TextStyle(
-                                                  fontSize: 12.0,
+                                                style: GoogleFonts.kurale(
+                                                  fontSize: 12,
                                                 ),
                                               ),
                                             ],

@@ -12,6 +12,7 @@ import 'package:weddify/provider/appprovider.dart';
 import 'package:weddify/screens/category-view/category_view.dart';
 import 'package:weddify/screens/product-details/product-details.dart';
 import 'package:weddify/widgets/toptext/toptext.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -112,11 +113,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(
                           height: 24.0,
                         ),
-                        const Text(
+                        Text(
                           "Categories",
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
+                          style: GoogleFonts.kurale(
+                            fontSize: 20,
                           ),
                         ),
                       ],
@@ -164,7 +164,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                             //   fit: BoxFit.fill,
                                             // ),
                                           ),
-                                          Text(e.name),
+                                          Text(
+                                            e.name,
+                                            style: GoogleFonts.kurale(
+                                                //fontSize: 20,
+                                                ),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -174,16 +179,15 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                   const SizedBox(
-                    height: 12.0,
+                    height: 1.0,
                   ),
                   !isSearched()
-                      ? const Padding(
+                      ? Padding(
                           padding: EdgeInsets.only(top: 12.0, left: 12.0),
                           child: Text(
                             "Best Products",
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
+                            style: GoogleFonts.kurale(
+                              fontSize: 20,
                             ),
                           ),
                         )
@@ -192,8 +196,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 12.0,
                   ),
                   search.text.isNotEmpty && searchList.isEmpty
-                      ? const Center(
-                          child: Text("No Product Found"),
+                      ? Center(
+                          child: Text(
+                            "No Product Found",
+                            style: GoogleFonts.kurale(
+                              fontSize: 20,
+                            ),
+                          ),
                         )
                       : searchList.isNotEmpty
                           ? Padding(
@@ -254,9 +263,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                           Text(
                                             singleProduct.name,
-                                            style: const TextStyle(
-                                              fontSize: 15.0,
-                                              fontWeight: FontWeight.bold,
+                                            style: GoogleFonts.kurale(
+                                              fontSize: 15,
                                             ),
                                           ),
                                           SizedBox(
@@ -266,9 +274,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
-                                              Text("Price:"),
-                                              Text(singleProduct.price
-                                                  .toString()),
+                                              Text(
+                                                "Price:",
+                                                style: GoogleFonts.kurale(
+                                                  fontSize: 15,
+                                                ),
+                                              ),
+                                              Text(
+                                                singleProduct.price.toString(),
+                                                style: GoogleFonts.kurale(
+                                                  fontSize: 15,
+                                                ),
+                                              ),
                                             ],
                                           ),
                                           const SizedBox(
@@ -285,8 +302,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             singleProduct),
                                                     context: context);
                                               },
-                                              child: const Text(
+                                              child: Text(
                                                 "Book Now",
+                                                style: GoogleFonts.kurale(
+                                                  fontSize: 15,
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -299,8 +319,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   }),
                             )
                           : bestproductsList.isEmpty
-                              ? const Center(
-                                  child: Text("Best Product is empty"),
+                              ? Center(
+                                  child: Text(
+                                    "Best Product is empty",
+                                    style: GoogleFonts.kurale(
+                                      fontSize: 25,
+                                    ),
+                                  ),
                                 )
                               : Padding(
                                   padding: const EdgeInsets.all(12.0),
@@ -360,29 +385,38 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 // ),
                                               ),
                                               SizedBox(
-                                                height: 12.0,
+                                                height: 8.0,
                                               ),
                                               Text(
                                                 singleProduct.name,
-                                                style: const TextStyle(
-                                                  fontSize: 15.0,
-                                                  fontWeight: FontWeight.bold,
+                                                style: GoogleFonts.kurale(
+                                                  fontSize: 15,
                                                 ),
                                               ),
                                               SizedBox(
-                                                height: 10,
+                                                height: 5,
                                               ),
                                               Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
-                                                  Text("Price:"),
-                                                  Text(singleProduct.price
-                                                      .toString()),
+                                                  Text(
+                                                    "Price:",
+                                                    style: GoogleFonts.kurale(
+                                                      fontSize: 15,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    singleProduct.price
+                                                        .toString(),
+                                                    style: GoogleFonts.kurale(
+                                                      fontSize: 15,
+                                                    ),
+                                                  ),
                                                 ],
                                               ),
                                               const SizedBox(
-                                                height: 10.0,
+                                                height: 5.0,
                                               ),
                                               SizedBox(
                                                 height: 45,
@@ -395,8 +429,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                 singleProduct),
                                                         context: context);
                                                   },
-                                                  child: const Text(
+                                                  child: Text(
                                                     "Book Now",
+                                                    style: GoogleFonts.kurale(
+                                                      fontSize: 15,
+                                                    ),
                                                   ),
                                                 ),
                                               ),

@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:weddify/constants/constantss/constantss.dart';
 import 'package:weddify/constants/routes/routes.dart';
 import 'package:weddify/firebase_helper/firebaseauth/firebaseauthhelper.dart';
@@ -89,8 +90,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   child: Text(
                     "forget password?",
-                    style: TextStyle(
-                        color: Colors.deepPurple, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.kurale(
+                      fontSize: 18,
+                      color: Colors.pink[400],
+                    ),
                   ),
                 ),
               ),
@@ -119,7 +122,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Text(
                     "don't have an account??",
-                    style: TextStyle(color: Colors.black, fontSize: 15),
+                    style: GoogleFonts.kurale(
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
                   ),
                   SizedBox(
                     height: 20,
@@ -134,10 +140,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     child: Text(
                       "Register Here",
-                      style: TextStyle(
-                          color: Colors.pink,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold),
+                      style: GoogleFonts.kurale(
+                        fontSize: 16,
+                        color: Colors.pink[400],
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],
@@ -149,3 +156,5 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
+class Fontweight {}
