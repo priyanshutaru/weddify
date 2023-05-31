@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:weddify/constants/constantss/constantss.dart';
 import 'package:weddify/constants/routes/routes.dart';
 import 'package:weddify/firebase_helper/firebaseauth/firebaseauthhelper.dart';
+import 'package:weddify/screens/authscreens/forget-password/forget-password.dart';
 import 'package:weddify/screens/authscreens/register/registerscreen.dart';
 import 'package:weddify/screens/custom_bottombar/custom_bottombar.dart';
 import 'package:weddify/screens/home/homescreen.dart';
@@ -81,10 +82,16 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Align(
                 alignment: Alignment.bottomRight,
-                child: Text(
-                  "forget password?",
-                  style: TextStyle(
-                      color: Colors.deepPurple, fontWeight: FontWeight.bold),
+                child: CupertinoButton(
+                  onPressed: () {
+                    Routes.instance
+                        .push(widget: ForgotPasswordScreen(), context: context);
+                  },
+                  child: Text(
+                    "forget password?",
+                    style: TextStyle(
+                        color: Colors.deepPurple, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
               SizedBox(
