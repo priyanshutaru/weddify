@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 //********************------------- this function show the toast masssage in the screen  -------------********************//
@@ -7,7 +8,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 void toastMessage(String message) {
   Fluttertoast.showToast(
     msg: message,
-    backgroundColor: Colors.red,
+    
+    backgroundColor: Colors.pink[400],
     textColor: Colors.white,
     fontSize: 16.0,
   );
@@ -32,7 +34,7 @@ showLoaderDialog(BuildContext context) {
             ),
             Container(
                 margin: const EdgeInsets.only(left: 7),
-                child: const Text("Loading...")),
+                child:  Text("Loading...",style: GoogleFonts.kurale(),)),
           ],
         ),
       );
