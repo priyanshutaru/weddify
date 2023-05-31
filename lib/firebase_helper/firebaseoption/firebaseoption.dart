@@ -22,6 +22,7 @@ class DefaultFirebaseConfig {
         apiKey: 'AIzaSyAAMzp42u4Zhi2fqJYxHUdwdLjS-j6mpCk',
         projectId: 'weddify-ddfba',
         messagingSenderId: '720542394888',
+        storageBucket: "gs://weddify-ddfba.appspot.com",
       );
     }
   }

@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 //********************------------- By this the user can upload the image on the firebase  -------------********************//
 
 class FirebaseStorageHelper {
+  //static FirebaseFirestoreHelper instance = FirebaseFirestoreHelper();
   static FirebaseStorageHelper instance = FirebaseStorageHelper();
   final FirebaseStorage _storage = FirebaseStorage.instance;
 

@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
+import 'package:weddify/firebase_helper/firebase-storage/firebase-storage.dart';
 import 'package:weddify/models/usermodel/usermodel.dart';
 import 'package:weddify/provider/appprovider.dart';
 
