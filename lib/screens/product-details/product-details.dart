@@ -203,7 +203,7 @@ class _ProductsDeatialsState extends State<ProductsDeatials> {
                               context: context);
                         },
                         child: Text(
-                          "Buy",
+                          "Book Now",
                           style: GoogleFonts.kurale(
                             fontSize: 15,
                           ),
