@@ -9,6 +9,7 @@ import 'package:weddify/constants/routes/routes.dart';
 import 'package:weddify/provider/appprovider.dart';
 import 'package:weddify/screens/cart_screen/checkout_cart_items/checkout_cart_items.dart';
 import 'package:weddify/screens/cart_screen/widget/singlecart_item.dart';
+// ignore: unused_import
 import 'package:weddify/widgets/toptext/toptext.dart';
 
 class CartScreen extends StatefulWidget {
