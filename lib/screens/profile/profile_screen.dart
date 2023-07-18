@@ -33,61 +33,61 @@ class _ProfilScreenState extends State<ProfilScreen> {
       ),
       body: Column(
         children: [
+          // Expanded(
+          //   child: Center(
+          //     child: Column(
+          //       // crossAxisAlignment: CrossAxisAlignment.center,
+          //       // mainAxisAlignment: MainAxisAlignment.center,
+          //       children: [
+          //         // Text(
+          //         //   "Profile",
+          //         //   style: TextStyle(
+          //         //       color: Colors.black,
+          //         //       fontSize: 20,
+          //         //       fontWeight: FontWeight.w300),
+          //         // ),
+          //         // appProvider.getUserInformation.image == null
+          //         //     ? Icon(
+          //         //         Icons.person_outline,
+          //         //         size: 120,
+          //         //       )
+          //         //     : CircleAvatar(
+          //         //         backgroundImage: NetworkImage(
+          //         //             appProvider.getUserInformation.image!),
+          //         //         radius: 60,
+          //         //       ),
+          //         // Text(
+          //         //   appProvider.getUserInformation.name,
+          //         //   style: GoogleFonts.kurale(
+          //         //     fontSize: 20,
+          //         //     fontWeight: FontWeight.w400,
+          //         //     color: Colors.black,
+          //         //   ),
+          //         // ),
+          //         // Text(
+          //         //   appProvider.getUserInformation.email,
+          //         //   style: GoogleFonts.kurale(
+          //         //       // fontSize: 12,
+          //         //       ),
+          //         // ),
+          //         // ElevatedButton(
+          //         //   onPressed: () {
+          //         //     Routes.instance
+          //         //         .push(widget: const EditProfile(), context: context);
+          //         //   },
+          //         //   child: Text(
+          //         //     "Edit Profile",
+          //         //     style: GoogleFonts.kurale(
+          //         //         // fontSize: 12,
+          //         //         ),
+          //         //   ),
+          //         // ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
           Expanded(
-            child: Center(
-              child: Column(
-                // crossAxisAlignment: CrossAxisAlignment.center,
-                // mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Text(
-                  //   "Profile",
-                  //   style: TextStyle(
-                  //       color: Colors.black,
-                  //       fontSize: 20,
-                  //       fontWeight: FontWeight.w300),
-                  // ),
-                  appProvider.getUserInformation.image == null
-                      ? Icon(
-                          Icons.person_outline,
-                          size: 120,
-                        )
-                      : CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              appProvider.getUserInformation.image!),
-                          radius: 60,
-                        ),
-                  Text(
-                    appProvider.getUserInformation.name,
-                    style: GoogleFonts.kurale(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Text(
-                    appProvider.getUserInformation.email,
-                    style: GoogleFonts.kurale(
-                        // fontSize: 12,
-                        ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Routes.instance
-                          .push(widget: const EditProfile(), context: context);
-                    },
-                    child: Text(
-                      "Edit Profile",
-                      style: GoogleFonts.kurale(
-                          // fontSize: 12,
-                          ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 2,
+            //flex: 1,
             child: Column(
               children: [
                 ListTile(
